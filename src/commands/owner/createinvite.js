@@ -1,3 +1,4 @@
+const { Message } = require('discord.js');
 const Command = require('../Command.js');
 
 module.exports  = class createInvite extends Command {
@@ -11,17 +12,17 @@ module.exports  = class createInvite extends Command {
         ownerOnly: true,
     });
   }
-run(message) {
+run(message, args) {
     function send(invite, generated){
         const string = `Here's server link ;) (${generated ? 'new' : 'old'} invite)`;
-        return msg.author.send(`${string}\n${invite}`)
-        .catch(() => msg.channel.send(`${string}\n${invite}`));
+        return message.author.send(`${string}\n${invite}`)
+        .catch(() => message.channel.send(`${string}\n${invite}`));
     }
-    const guildID = msg.args[0];
-    if(!guildID) return bot.cmdError("No GuildID provided");
-    const guild = bot.guilds.cache.get(guildID);
-    if(!guild) return bot.cmdError(`${guildID} is not a valid guild`);
-    if(!guild.me.permissions.has("CREATE_INSTANT_INVITE")) return bot.cmdError("Bot doesn't have the permissions on that guild");
+    const guildID = args[0];
+    if(!guildID) return this.sendErrorMessage(message, 0, 'No GuildID provided');
+    const guild = this.client.guilds.cache.get(guildID);
+    if(!guild) return this.sendErrorMessage(message, 0, `${guildID} is not a valid guild`);
+    if(!guild.me.permissions.has("CREATE_INSTANT_INVITE")) return this.sendErrorMessage(message, 0, 'Bot doesn\'t have the permissions on that guild');
     const invites = guild.fetchInvites().catch(()=>{});
     if(invites && invites.size) return send(invites.random(), false);
     const channel = guild.channels.cache.filter(c => c.type == "text").random();
