@@ -1,8 +1,6 @@
 module.exports = async (client) => {
 
   client.user.setPresence({ activity: { name: 'Dynamic' , type: 'WATCHING' }, status: 'online' })
-  .then(console.log)
-  .catch(console.error);
 
   client.logger.info('Updating database and scheduling jobs...');
   for (const guild of client.guilds.cache.values()) {
