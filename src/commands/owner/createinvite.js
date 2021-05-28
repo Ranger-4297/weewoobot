@@ -12,7 +12,7 @@ module.exports  = class createInvite extends Command {
         ownerOnly: true,
     });
   }
-run(message, args) {
+async run(message, args) {
     function send(invite, generated){
         const string = `Here's server link ;) (${generated ? 'new' : 'old'} invite)`;
         return message.author.send(`${string}\n${invite}`)
@@ -26,7 +26,7 @@ run(message, args) {
     const invites = guild.fetchInvites().catch(()=>{});
     if(invites && invites.size) return send(invites.random(), false);
     const channel = guild.channels.cache.filter(c => c.type == "text").random();
-    const invite =  channel.createInvite({maxUses: 1, maxAge: 150, unique: true});
+    const invite = await channel.createInvite({maxUses: 1, maxAge: 150, unique: true});
     return send(invite, true);
   }
 };
