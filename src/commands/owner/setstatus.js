@@ -1,9 +1,9 @@
 const Command = require('../Command.js');
 
-module.exports  = class setstatus extends Command {
+module.exports  = class Setstatus extends Command {
   constructor(client) {
     super(client, {
-        name: "setStatus",
+        name: "setstatus",
         aliases: ['setsat', 'status', 'set-status'],
         usage: 'setStatus <Activity: LISTENING|WATCHING|PLAYING> <Status: String>',
         description: "Sets the bot status & activity",
