@@ -31,7 +31,7 @@ module.exports = class BotInfoCommand extends Command {
       `)
       .addField('Prefix', `\`${prefix}\``, true)
       .addField('Client ID', `\`${message.client.user.id}\``, true)
-      .addField(`Developer ${owner}`, botOwner, true)
+      .addField(`Developer ${owner}`, '<@765316548516380732>', true)
       .addField('Tech', `\`\`\`asciidoc\n${tech}\`\`\``)
       .addField(
         'Links', 
@@ -39,7 +39,6 @@ module.exports = class BotInfoCommand extends Command {
         '[Support Server](https://discord.gg/ekMQH384KC) | ' +
         '[Owners GitHub](https://github.com/Ranger-4297)**'
       )
-      .setImage('https://cdn.discordapp.com/attachments/826971332775903271/847423432097792000/Calypso.jpg')
       .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
       .setColor(message.guild.me.displayHexColor);

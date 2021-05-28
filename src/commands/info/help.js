@@ -97,7 +97,6 @@ module.exports = class HelpCommand extends Command {
           message.author.displayAvatarURL({ dynamic: true })
         )
         .setTimestamp()
-        .setImage('https://cdn.discordapp.com/attachments/826971332775903271/847423432097792000/Calypso.jpg')
         .setColor(message.guild.me.displayHexColor);
 
       for (const type of Object.values(message.client.types)) {
