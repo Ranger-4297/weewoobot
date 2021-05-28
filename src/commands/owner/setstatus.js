@@ -1,3 +1,5 @@
+const Command = require('../Command.js');
+
 module.exports  = class createInvite extends Command {
   constructor(client) {
     super(client, {
