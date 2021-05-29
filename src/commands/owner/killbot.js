@@ -12,7 +12,10 @@ module.exports  = class killbot extends Command {
     });
   }
 async run(message) {
-  message.channel.send("Bot was killed")
+  message.channel.send("Bot was killed successfully"),
   console.log('Bot was killed')
+setTimeout(function(){ 
+    process.exit()
+ }, 5000); //time in milliseconds
   }
 };
