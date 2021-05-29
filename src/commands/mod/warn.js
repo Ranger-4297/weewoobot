@@ -10,7 +10,7 @@ module.exports = class WarnCommand extends Command {
       description: 'Warns a member in your server.',
       type: client.types.MOD,
       clientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS', 'KICK_MEMBERS'],
-      userPermissions: ['KICK_MEMBERS'],
+      userPermissions: ['VIEW_AUDIT_LOG'],
       examples: ['warn @Nettles']
     });
   }
@@ -42,17 +42,12 @@ module.exports = class WarnCommand extends Command {
     
     message.client.db.users.updateWarns.run(JSON.stringify(warns), member.id, message.guild.id);
 
-    const embed = new MessageEmbed()
-      .setTitle('Warn Member')
-      .setDescription(`${member} has been warned.`)
-      .addField('Moderator', message.member, true)
-      .addField('Member', member, true)
-      .addField('Warn Count', `\`${warns.warns.length}\``, true)
-      .addField('Reason', reason)
-      .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
+    const embed1 = new MessageEmbed()
+      .setAuthor('Case type: Warning', message.author.displayAvatarURL({ dynamic: true }))
+      .setDescription(`${message.member} has successfully warned ${member}`)
       .setTimestamp()
-      .setColor(message.guild.me.displayHexColor);
-    message.channel.send(embed);
+      .setColor('#2f3136');
+    message.channel.send(embed1);
     message.client.logger.info(`${message.guild.name}: ${message.author.tag} warned ${member.user.tag}`);
     
     // Update mod log

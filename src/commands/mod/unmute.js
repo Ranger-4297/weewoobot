@@ -9,7 +9,7 @@ module.exports = class UnmuteCommand extends Command {
       description: 'Unmutes the specified user.',
       type: client.types.MOD,
       clientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS', 'MANAGE_ROLES'],
-      userPermissions: ['MANAGE_ROLES'],
+      userPermissions: ['VIEW_AUDIT_LOG'],
       examples: ['unmute @Nettles']
     });
   }
@@ -37,12 +37,10 @@ module.exports = class UnmuteCommand extends Command {
     try {
       await member.roles.remove(muteRole);
       const embed = new MessageEmbed()
-        .setTitle('Unmute Member')
-        .setDescription(`${member} has been unmuted.`)
-        .addField('Reason', reason)
-        .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
+        .setTitle('Case type: Unmute')
+        .setDescription(`${message.member} has successfully unmuted ${member}`)
         .setTimestamp()
-        .setColor(message.guild.me.displayHexColor);
+        .setColor('#2f3136');
       message.channel.send(embed);
     } catch (err) {
       message.client.logger.error(err.stack);

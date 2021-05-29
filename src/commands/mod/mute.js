@@ -10,7 +10,7 @@ module.exports = class MuteCommand extends Command {
       description: 'Mutes a user for the specified amount of time (max is 14 days).',
       type: client.types.MOD,
       clientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS', 'MANAGE_ROLES'],
-      userPermissions: ['MANAGE_ROLES'],
+      userPermissions: ['VIEW_AUDIT_LOG'],
       examples: ['mute @Nettles 10s', 'mute @Nettles 30m talks too much']
     });
   }
@@ -50,15 +50,10 @@ module.exports = class MuteCommand extends Command {
       return this.sendErrorMessage(message, 1, 'Please check the role hierarchy', err.message);
     }
     const muteEmbed = new MessageEmbed()
-      .setTitle('Mute Member')
+      .setTitle('Case type: Mute', message.author.displayAvatarURL({ dynamic: true }))
       .setDescription(`${member} has now been muted for **${ms(time, { long: true })}**.`)
-      .addField('Moderator', message.member, true)
-      .addField('Member', member, true)
-      .addField('Time', `\`${ms(time)}\``, true)
-      .addField('Reason', reason)
-      .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
-      .setColor(message.guild.me.displayHexColor);
+      .setColor('#2f3136');
     message.channel.send(muteEmbed);
 
     // Unmute member

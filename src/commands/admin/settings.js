@@ -101,10 +101,6 @@ module.exports = class SettingsCommand extends Command {
           .addField('Admin Role', adminRole, true)
           .addField('Mod Role', modRole, true)
           .addField('Mute Role', muteRole, true)
-          .addField('Auto Role', autoRole, true)
-          .addField('Auto Kick', autoKick, true)
-          .addField('Random Color', randomColor, true)
-          .addField('Mod Channels', modChannels)
           .addField('Disabled Commands', disabledCommands)
         );
       case 'l':
