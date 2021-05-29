@@ -186,10 +186,7 @@ module.exports = class SettingsCommand extends Command {
       .addField('Logging', '`6` settings', true)
       .addField('Verification', '`3` settings', true)
       .addField('Welcomes', '`2` settings', true)
-      .addField('Farewells', '`2` settings', true)
-      .addField('Points', '`3` settings', true)
-      .addField('Crown', '`4` settings', true);
-
+      .addField('Farewells', '`2` settings', true);
     message.channel.send(embed);
   }
 };
