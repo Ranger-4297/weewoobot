@@ -149,73 +149,7 @@ function replaceCrownKeywords(message) {
  * @param {Guild} guild
  * @param {Role} crownRole
  */
-async function transferCrown(client, guild, crownRoleId) {
-
-  const crownRole = guild.roles.cache.get(crownRoleId);
-  
-  // If crown role is unable to be found
-  if (!crownRole) {
-    return client.sendSystemErrorMessage(guild, 'crown update', stripIndent`
-      Unable to transfer crown role, it may have been modified or deleted
-    `);
-  }
-  
-  const leaderboard = client.db.users.selectLeaderboard.all(guild.id);
-  const winner = guild.members.cache.get(leaderboard[0].user_id);
-  const points = client.db.users.selectPoints.pluck().get(winner.id, guild.id);
-  let quit = false;
-
-  // Remove role from losers
-  await Promise.all(guild.members.cache.map(async member => { // Good alternative to handling async forEach
-    if (member.roles.cache.has(crownRole.id)) {
-      try {
-        await member.roles.remove(crownRole);
-      } catch (err) {
-
-        quit = true;
-        
-        return client.sendSystemErrorMessage(guild, 'crown update', stripIndent`
-          Unable to transfer crown role, please check the role hierarchy and ensure I have the Manage Roles permission
-        `, err.message);
-      } 
-    }
-  }));
-
-  if (quit) return;
-
-  // Give role to winner
-  try {
-    await winner.roles.add(crownRole);
-    // Clear points
-    client.db.users.wipeAllPoints.run(guild.id);
-  } catch (err) {
-    return client.sendSystemErrorMessage(guild, 'crown update', stripIndent`
-      Unable to transfer crown role, please check the role hierarchy and ensure I have the Manage Roles permission
-    `, err.message);
-  }
-  
-  // Get crown channel and crown channel
-  let { crown_channel_id: crownChannelId, crown_message: crownMessage } = 
-    client.db.settings.selectCrown.get(guild.id);
-  const crownChannel = guild.channels.cache.get(crownChannelId);
-
-  // Send crown message
-  if (
-    crownChannel &&
-    crownChannel.viewable &&
-    crownChannel.permissionsFor(guild.me).has(['SEND_MESSAGES', 'EMBED_LINKS']) &&
-    crownMessage
-  ) {
-    crownMessage = crownMessage
-      .replace(/`?\?member`?/g, winner) // Member mention substitution
-      .replace(/`?\?username`?/g, winner.user.username) // Username substitution
-      .replace(/`?\?tag`?/g, winner.user.tag) // Tag substitution
-      .replace(/`?\?role`?/g, crownRole) // Role substitution
-      .replace(/`?\?points`?/g, points); // Points substitution
-    crownChannel.send(new MessageEmbed().setDescription(crownMessage).setColor(guild.me.displayHexColor));
-  }
-
-  client.logger.info(`${guild.name}: Assigned crown role to ${winner.user.tag} and reset server points`);
+  async function transferCrown(client, guild, crownRoleId) {
 }
 
 /**
