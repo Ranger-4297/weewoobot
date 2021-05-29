@@ -1,4 +1,5 @@
 const Command = require('../Command.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports  = class killbot extends Command {
   constructor(client) {
@@ -12,8 +13,12 @@ module.exports  = class killbot extends Command {
     });
   }
 async run(message) {
-  message.channel.send("Bot was killed successfully"),
-  console.log('Bot was killed')
+  const embed = new MessageEmbed()
+  .setDescription('Successfully killed the running instance')
+  .setTimestamp()
+  .setColor('#2f3136');
+message.channel.send(embed);
+console.log('Bot was killed')
 setTimeout(function(){ 
     process.exit()
  }, 5000); //time in milliseconds
