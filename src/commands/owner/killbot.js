@@ -1,24 +1,24 @@
 const Command = require('../Command.js');
 const { MessageEmbed } = require('discord.js');
 
-module.exports  = class killbot extends Command {
+module.exports  = class reload extends Command {
   constructor(client) {
     super(client, {
-        name: "killbot",
-        aliases: ['kill'],
-        usage: 'killbot',
-        description: "kills the instance of the bot running",
+        name: "reload",
+        aliases: ['restart'],
+        usage: 'reload',
+        description: "Reloads the bot\nRequires PM2 to reload",
         type: client.types.OWNER,
         ownerOnly: true,
     });
   }
 async run(message) {
   const embed = new MessageEmbed()
-  .setDescription('Successfully killed the running instance')
+  .setDescription('Successfully reloaded the bot...give it some time')
   .setTimestamp()
   .setColor('#2f3136');
 message.channel.send(embed);
-console.log('Bot was killed')
+console.log('Bot was reloaded')
 setTimeout(function(){ 
     process.exit()
  }, 5000); //time in milliseconds
