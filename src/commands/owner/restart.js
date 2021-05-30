@@ -1,13 +1,13 @@
 const Command = require('../Command.js');
 const { MessageEmbed } = require('discord.js');
 
-module.exports  = class reload extends Command {
+module.exports  = class restart extends Command {
   constructor(client) {
     super(client, {
-        name: "reload",
+        name: "restart",
         aliases: ['restart'],
         usage: 'reload',
-        description: "Reloads the bot\nRequires PM2 to reload",
+        description: "Restarts the bot\nRequires PM2 to reload",
         type: client.types.OWNER,
         ownerOnly: true,
     });
