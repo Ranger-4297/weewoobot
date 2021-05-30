@@ -16,7 +16,7 @@ module.exports  = class Setstatus extends Command {
     if(args[0]) {
       this.client.user.setPresence({ activity: { name: (args.join(" ")) , type: 'WATCHING' }, status: 'online'})
       message.channel.send("Updated the bot status")
-      console.log('Updated status to ' (args.join(" ")))
+      console.log(`Status updated: ${(args.join(" "))}`)
       }
     else if(args) {
       return this.sendErrorMessage(message, 0, ("Please give a status message"))
