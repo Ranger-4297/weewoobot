@@ -5,8 +5,7 @@ module.exports  = class restart extends Command {
   constructor(client) {
     super(client, {
         name: "restart",
-        aliases: ['restart'],
-        usage: 'reload',
+        usage: 'restart',
         description: "Restarts the bot\nRequires PM2 to reload",
         type: client.types.OWNER,
         ownerOnly: true,
