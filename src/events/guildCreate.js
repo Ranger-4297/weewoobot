@@ -60,7 +60,7 @@ module.exports = async (client, guild) => {
     try {
       crownRole = await guild.roles.create({
         data: {
-          name: 'The Crown',
+          name: 'UwU',
           permissions: [],
           hoist: true
         }
