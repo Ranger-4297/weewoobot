@@ -17,7 +17,7 @@ module.exports = async (client) => {
       guild.roles.cache.find(r => r.name.toLowerCase() === 'admin' || r.name.toLowerCase() === 'administrator');
     const modRole = guild.roles.cache.find(r => r.name.toLowerCase() === 'mod' || r.name.toLowerCase() === 'moderator');
     const muteRole = guild.roles.cache.find(r => r.name.toLowerCase() === 'muted');
-    const crownRole = guild.roles.cache.find(r => r.name === 'The Crown');
+    const crownRole = guild.roles.cache.find(r => r.name === 'UwU');
 
     /** ------------------------------------------------------------------------------------------------
      * UPDATE TABLES
