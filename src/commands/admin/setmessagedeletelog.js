@@ -15,7 +15,7 @@ module.exports = class deletedmessagelog extends Command {
       `,
       type: client.types.ADMIN,
       userPermissions: ['MANAGE_GUILD'],
-      examples: ['deletedmessagelog #bot-log']
+      examples: ['editedmessagelog #bot-log']
     });
   }
   run(message, args) {
