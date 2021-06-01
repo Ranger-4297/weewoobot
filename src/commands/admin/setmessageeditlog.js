@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 const { success } = require('../../utils/emojis.json');
 const { oneLine, stripIndent } = require('common-tags');
 
-module.exports = class deletedmessagelog extends Command {
+module.exports = class editedmessagelog extends Command {
   constructor(client) {
     super(client, {
       name: 'editedmessagelog',
