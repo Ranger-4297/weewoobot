@@ -15,7 +15,6 @@ module.exports = class BotInfoCommand extends Command {
     });
   }
   run(message) {
-    const botOwner = message.client.users.cache.get(message.client.ownerId);
     const prefix = message.client.db.settings.selectPrefix.pluck().get(message.guild.id);
     const tech = stripIndent`
       Version     :: ${pkg.version}
@@ -27,7 +26,7 @@ module.exports = class BotInfoCommand extends Command {
       .setTitle('Weewoo\'s Bot Information')
       .setDescription(oneLine`
         Weewoo is a fully customizable Discord bot that is constantly growing,
-        Originally, started as a selfhost of Calypso, has become more of a fulltime project.
+        Originally, started as a selfhost fun-project, has become more of a time-consuming project.
       `)
       .addField('Prefix', `\`${prefix}\``, true)
       .addField('Client ID', `\`${message.client.user.id}\``, true)

@@ -15,7 +15,6 @@ module.exports = class PrefixCommand extends Command {
     const prefix = message.client.db.settings.selectPrefix.pluck().get(message.guild.id); // Get prefix
     const embed = new MessageEmbed()
       .setTitle('Weewoo\'s Prefix')
-      .setThumbnail('https://cdn.discordapp.com/attachments/826971332775903271/847423432097792000/Calypso.jpg')
       .addField('Prefix', `\`${prefix}\``, true)
       .addField('Example', `\`${prefix}ping\``, true)
       .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))

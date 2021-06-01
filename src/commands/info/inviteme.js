@@ -15,7 +15,6 @@ module.exports = class InviteMeCommand extends Command {
   run(message) {
     const embed = new MessageEmbed()
       .setTitle('Invite Me')
-      .setThumbnail('https://cdn.discordapp.com/attachments/826971332775903271/847423432097792000/Calypso.jpg')
       .setDescription(oneLine`
         Click [here](https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot)
         to invite me to your server!

@@ -14,7 +14,6 @@ module.exports = class SupportServerCommand extends Command {
   run(message) {
     const embed = new MessageEmbed()
       .setTitle('Support Server')
-      .setThumbnail('https://cdn.discordapp.com/attachments/826971332775903271/847423432097792000/Calypso.jpg')
       .setDescription('Click [here](https://discord.gg/ekMQH384KC) to join the Weewoo Support Server!')
       .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()

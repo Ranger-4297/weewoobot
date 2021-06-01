@@ -26,7 +26,6 @@ module.exports = class BlastCommand extends Command {
       ) {
         const embed = new MessageEmbed()
           .setTitle('Weewoo System Message')
-          .setThumbnail('https://cdn.discordapp.com/attachments/826971332775903271/847423432097792000/Calypso.jpg')
           .setDescription(msg)
           .setTimestamp()
           .setColor(message.guild.me.displayHexColor);
