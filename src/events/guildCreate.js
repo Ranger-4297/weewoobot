@@ -127,8 +127,8 @@ module.exports = async (client, guild) => {
 
   // Self-assign color
   try {
-    const calypsoColor = guild.roles.cache.find(r => r.name === '#Seagrass');
-    if (calypsoColor) await guild.me.roles.add(calypsoColor);
+    const Weewoocolor = guild.roles.cache.find(r => r.name === '#Seagrass');
+    if (Weewoocolor) await guild.me.roles.add(Weewoocolor);
   } catch (err) {
     client.logger.error(err.message);
   }
