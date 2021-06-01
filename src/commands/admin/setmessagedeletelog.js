@@ -6,16 +6,16 @@ const { oneLine, stripIndent } = require('common-tags');
 module.exports = class SetMessageDeleteLogCommand extends Command {
   constructor(client) {
     super(client, {
-      name: 'setmessagedeletelog',
-      aliases: ['setmsgdeletelog', 'setmdl', 'smdl'],
-      usage: 'setmessagedeletelog <channel mention/ID>',
+      name: 'deletedmessagelog',
+      aliases: ['dellog', 'delmsglog'],
+      usage: 'deletedmessagelog <channel mention/ID>',
       description: oneLine`
         Sets the message delete log text channel for your server. 
         Provide no channel to clear the current \`message delete log\`.
       `,
       type: client.types.ADMIN,
       userPermissions: ['MANAGE_GUILD'],
-      examples: ['setmessagedeletelog #bot-log']
+      examples: ['deletedmessagelog #bot-log']
     });
   }
   run(message, args) {

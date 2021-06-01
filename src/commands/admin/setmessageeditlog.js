@@ -3,19 +3,19 @@ const { MessageEmbed } = require('discord.js');
 const { success } = require('../../utils/emojis.json');
 const { oneLine, stripIndent } = require('common-tags');
 
-module.exports = class SetMessageEditLogCommand extends Command {
+module.exports = class deletedmessagelog extends Command {
   constructor(client) {
     super(client, {
-      name: 'setmessageeditlog',
-      aliases: ['setmsgeditlog', 'setmel', 'smel'],
-      usage: 'setmessageeditlog <channel mention/ID>',
+      name: 'editedmessagelog',
+      aliases: ['editlog', 'editmsglog'],
+      usage: 'deletedmessagelog <channel mention/ID>',
       description: oneLine`
         Sets the message edit log text channel for your server. 
         Provide no channel to clear the current \`message edit log\`.
       `,
       type: client.types.ADMIN,
       userPermissions: ['MANAGE_GUILD'],
-      examples: ['setmessageeditlog #bot-log']
+      examples: ['deletedmessagelog #bot-log']
     });
   }
   run(message, args) {
