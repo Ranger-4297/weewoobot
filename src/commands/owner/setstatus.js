@@ -20,8 +20,7 @@ module.exports  = class Setstatus extends Command {
       console.log(`Presence updated: Activity: ${(args[0])}, Status: ${(args.slice(1).join(' '))}`)
       }
     else if(args) {
-      return this.sendErrorMessage(message, 0, ("Please give a valid activity."))
-      return this.sendErrorMessage(message, 1, ("Please enter a status"))
+      return this.sendErrorMessage(message, 0, ("Please give a valid activity and/or status"))
     }
   }
 };
