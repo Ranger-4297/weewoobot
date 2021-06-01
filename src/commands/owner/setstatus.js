@@ -14,12 +14,12 @@ module.exports  = class Setstatus extends Command {
   async run(message, args) {
     //ARGUMENT
     if(args[0]) {
-      this.client.user.setPresence({ activity: { name: (args.join[1](" ")) , type: (args[0]) }, status: 'online'})
+      this.client.user.setPresence({ activity: { name: (args.join(" ")) , type: 'WATCHING' }, status: 'online'})
       message.channel.send("Updated the bot status")
       console.log(`Status updated: ${(args.join(" "))}`)
       }
     else if(args) {
-      return this.sendErrorMessage(message, 0, ("Please give valid status or activity type"))
+      return this.sendErrorMessage(message, 0, ("Please give a status message"))
     }
   }
 };
