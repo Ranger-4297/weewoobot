@@ -11,7 +11,7 @@ module.exports = class MuteCommand extends Command {
       type: client.types.MOD,
       clientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS', 'MANAGE_ROLES'],
       userPermissions: ['VIEW_AUDIT_LOG'],
-      examples: ['mute @Nettles 10s', 'mute @Nettles 30m talks too much']
+      examples: ['mute @Ranger 10s', 'mute @Ranger 30m talks too much']
     });
   }
   async run(message, args) {
