@@ -5,7 +5,7 @@ module.exports  = class Setstatus extends Command {
     super(client, {
         name: "setstatus",
         aliases: ['setsat', 'status', 'set-status'],
-        usage: 'setStatus <activity> <status>',
+        usage: 'setstatus <activity> <status>',
         description: "Sets the bots presence. Valid activities are: LISTENING|WATCHING|PLAYING",
         type: client.types.OWNER,
         ownerOnly: true,
