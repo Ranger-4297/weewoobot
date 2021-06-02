@@ -40,7 +40,7 @@ module.exports = class ReloadCommand extends Command {
             });
           }
 
-        message.channel.send('Done ! Succesfully reloaded ' + commandName)
+        message.channel.send(`Done! Succesfully reloaded \`${commandName}\``)
     }} catch(err) {
         return this.sendErrorMessage(message, 1, `Could not reload: ${commandName}`, err.stack);
     }
