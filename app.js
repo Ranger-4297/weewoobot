@@ -15,6 +15,8 @@ intents.add(
   'GUILD_MESSAGE_REACTIONS'
 );
 const client = new Client(config, { ws: { intents: intents } });
+require('discord-slider')(client)
+require('discord-buttons');
 
 // Initialize client
 function init() {
