@@ -51,7 +51,7 @@ If you liked this repository, feel free to leave a star ⭐ to help promote Weew
 
   * **Administration:** A huge amount of settings to customize with commands like `setprefix`, `setwelcomemessage`, and `setverificationrole`
   * **Moderation:** Commands such as `warn`, `ban`, & `mute` to assist your moderation team
-  * **Fun & Games:** Tons of fun commands like `trivia`, `meme`, `emojify`, and a variety of animal pic commands like `cat`, `dog`, and `fox`
+  * **Fun & Games:** Tons of fun commands like `trivia`, `meme` and a variety of animal pic commands like `cat`, `dog`, and `fox`
   * **Information:** Commands like `userinfo` and `serverinfo` for general utility
 
   * **Color:** Change your Discord color with commands like `color`, `createcolor` and `randomcolor`
