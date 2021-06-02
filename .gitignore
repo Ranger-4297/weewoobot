@@ -2,11 +2,11 @@
 *.sqlite*
 node_modules
 logs/*
-data/emojis
 .vscode
 .directory
 config.json
 to-do.txt
+tags/
 
 # do not ignore
 !.gitkeep
