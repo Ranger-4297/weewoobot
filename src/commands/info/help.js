@@ -2,6 +2,8 @@ const Command = require('../Command.js');
 const { MessageEmbed } = require('discord.js');
 const emojis = require('../../utils/emojis.json');
 const { oneLine, stripIndent } = require('common-tags');
+const { MessageButton, MessageActionRow } = require('discord-buttons');
+const disbut = require('discord-buttons')
 
 module.exports = class HelpCommand extends Command {
   constructor(client) {
@@ -48,9 +50,10 @@ module.exports = class HelpCommand extends Command {
       if (command.aliases) embed.addField('Aliases', command.aliases.map(c => `\`${c}\``).join(' '));
       if (command.examples) embed.addField('Examples', command.examples.map(c => `\`${prefix}${c}\``).join('\n'));
 
+      message.channel.send(embed)
+
     } else if (args.length > 0 && !all) {
       return this.sendErrorMessage(message, 0, 'Unable to find command, please check provided command');
-
     } else {
 
       // Get commands
@@ -90,12 +93,6 @@ module.exports = class HelpCommand extends Command {
           **More Information:** \`${prefix}help [command]\`
           ${(!all && size != total) ? `**All Commands:** \`${prefix}help all\`` : ''}
         `)
-        .setFooter(
-          (!all && size != total) ? 
-            'Only showing available commands.\n' + message.member.displayName : message.member.displayName, 
-          message.author.displayAvatarURL({ dynamic: true })
-        )
-        .setTimestamp()
         .setColor(message.guild.me.displayHexColor);
 
       for (const type of Object.values(message.client.types)) {
@@ -106,12 +103,30 @@ module.exports = class HelpCommand extends Command {
 
       embed.addField(
         '**Links**', 
-        '**[Invite Me](https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot) | ' +
-        '[Support Server](https://discord.gg/ekMQH384KC) | ' +
-        '[Owners GitHub](https://github.com/Ranger-4297)**'
+        '_ _'
       );
-        
+
+      let button = new disbut.MessageButton()
+      .setStyle('url') //default: blurple
+      .setLabel('Invite me') //default: NO_LABEL_PROVIDED
+      .setURL('https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot')
+  
+      let button2 = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Support server')
+      .setURL('https://discord.gg/ekMQH384KC')
+  
+      let button3 = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Repository')
+      .setURL('https://github.com/Ranger-4297/Weewoo')
+
+      message.channel.send({
+        embed: embed,
+        buttons: [
+        button, button2, button3
+        ]
+    });
     }
-    message.channel.send(embed);
   }
 };
