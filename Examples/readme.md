@@ -55,9 +55,9 @@ require('discord-slider')(client)
 require('discord-buttons');
 ```
 
-**Embeds** [Embeds](https://github.com/Ranger-4297/weewoobot/blob/main/examples/embeds.md)  
-**Buttons** [Discord-buttons](https://github.com/Ranger-4297/weewoobot/blob/main/examples/discord-buttons.md)
-**Sliders** [Discord-sliders](https://github.com/Ranger-4297/weewoobot/blob/main/examples/discord-sliders.md)
+**Embeds** [Embeds](https://github.com/Ranger-4297/weewoobot/blob/main/Examples/embeds.md)  
+**Buttons** [Discord-buttons](https://github.com/Ranger-4297/weewoobot/blob/main/Examples/discord-buttons.md)
+**Sliders** [Discord-sliders](https://github.com/Ranger-4297/weewoobot/blob/main/Examples/discord-sliders.md)
 ---
 
 ## License
