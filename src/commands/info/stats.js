@@ -41,12 +41,6 @@ module.exports = class StatsCommand extends Command {
       .addField('Command Types', `\`${Object.keys(message.client.types).length}\` command types`, true)
       .addField('Client', `\`\`\`asciidoc\n${clientStats}\`\`\``)
       .addField('Server', `\`\`\`asciidoc\n${serverStats}\`\`\``)
-      .addField(
-        'Links', 
-        '**[Invite Me](https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot) | ' +
-        '[Support Server](https://discord.gg/ekMQH384KC) | ' +
-        '[Owners GitHub](https://github.com/Ranger-4297)**'
-      )
       .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
       .setColor(message.guild.me.displayHexColor);

@@ -3,6 +3,8 @@ const { MessageEmbed } = require('discord.js');
 const pkg = require(__basedir + '/package.json');
 const { owner } = require('../../utils/emojis.json');
 const { oneLine, stripIndent } = require('common-tags');
+const disbut = require('discord-buttons')
+const { MessageActionRow } = require('discord-buttons');
 
 module.exports = class BotInfoCommand extends Command {
   constructor(client) {
@@ -26,21 +28,33 @@ module.exports = class BotInfoCommand extends Command {
       .setTitle('Weewoo\'s Bot Information')
       .setDescription(oneLine`
         Weewoo is a fully customizable Discord bot that is constantly growing,
-        Originally, started as a selfhost fun-project, has become more of a time-consuming project.
+        Originally, started as a selfhost fun-project, has become more of a full-time activity.
       `)
+      .setColor('#2f3136')
       .addField('Prefix', `\`${prefix}\``, true)
       .addField('Client ID', `\`${message.client.user.id}\``, true)
-      .addField(`Developer ${owner}`, '<@765316548516380732>', true)
+      .addField(`Developer ${owner}`, '`Rhyker#1394`', true)
       .addField('Tech', `\`\`\`asciidoc\n${tech}\`\`\``)
-      .addField(
-        'Links', 
-        '**[Invite Me](https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot) | ' +
-        '[Support Server](https://discord.gg/ekMQH384KC) | ' +
-        '[Owners GitHub](https://github.com/Ranger-4297)**'
-      )
-      .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
-      .setTimestamp()
-      .setColor(message.guild.me.displayHexColor);
-    message.channel.send(embed);
+      .addField('**Links**', '_ _');
+      let button = new disbut.MessageButton()
+        .setStyle('url')
+        .setLabel('Invite me')
+        .setURL('https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot')
+      let button2 = new disbut.MessageButton()
+        .setStyle('url')
+        .setLabel('Support server')
+        .setURL('https://discord.gg/ekMQH384KC')
+      let button3 = new disbut.MessageButton()
+        .setStyle('url')
+        .setLabel('Repository')
+        .setURL('https://github.com/Ranger-4297/Weewoo')
+      let buttonRow = new MessageActionRow()
+        .addComponent(button)
+        .addComponent(button2)
+        .addComponent(button3)
+      message.channel.send({
+        embed: embed,
+        component: buttonRow
+        });
   }
 };

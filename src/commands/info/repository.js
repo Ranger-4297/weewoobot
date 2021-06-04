@@ -1,6 +1,6 @@
 const Command = require('../Command.js');
 const { MessageEmbed } = require('discord.js');
-const { MessageButton } = require('discord-buttons')
+const disbut = require('discord-buttons')
 
 module.exports = class GitHubCommand extends Command {
   constructor(client) {
@@ -19,10 +19,12 @@ module.exports = class GitHubCommand extends Command {
       .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
       .setColor(message.guild.me.displayHexColor);
-    let button = new MessageButton()
+    let button = new disbut.MessageButton()
       .setLabel("Repository")
       .setStyle("url")
       .setURL("https://github.com/Ranger-4297/Weewoo")
-      message.channel.send ({ embed: embed1, button })
+      message.channel.send({
+        embed: embed1,
+        component: button})
     }
 };

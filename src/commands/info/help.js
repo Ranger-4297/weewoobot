@@ -3,6 +3,8 @@ const { MessageEmbed } = require('discord.js');
 const emojis = require('../../utils/emojis.json');
 const { oneLine, stripIndent } = require('common-tags');
 const disbut = require('discord-buttons')
+const { MessageActionRow } = require('discord-buttons');
+
 
 module.exports = class HelpCommand extends Command {
   constructor(client) {
@@ -93,22 +95,24 @@ module.exports = class HelpCommand extends Command {
         '_ _'
       );
       let button = new disbut.MessageButton()
-      .setStyle('url') //default: blurple
-      .setLabel('Invite me') //default: NO_LABEL_PROVIDED
-      .setURL('https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot')
+        .setStyle('url') //default: blurple
+        .setLabel('Invite me') //default: NO_LABEL_PROVIDED
+        .setURL('https://discord.com/api/oauth2/authorize?client_id=819584400035020860&permissions=8&scope=bot')
       let button2 = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Support server')
-      .setURL('https://discord.gg/ekMQH384KC')
+        .setStyle('url')
+        .setLabel('Support server')
+        .setURL('https://discord.gg/ekMQH384KC')
       let button3 = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Repository')
-      .setURL('https://github.com/Ranger-4297/Weewoo')
+        .setStyle('url')
+        .setLabel('Repository')
+        .setURL('https://github.com/Ranger-4297/Weewoo')
+      let buttonRow = new MessageActionRow()
+        .addComponent(button)
+        .addComponent(button2)
+        .addComponent(button3)
       message.channel.send({
         embed: embed,
-        buttons: [
-        button, button2, button3
-        ]
+        component: buttonRow
     });
     }
   }
