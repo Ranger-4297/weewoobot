@@ -16,7 +16,7 @@ intents.add(
 );
 const client = new Client(config, { ws: { intents: intents } });
 require('discord-slider')(client)
-require('discord-buttons');
+require('discord-buttons')(client);
 
 // Initialize client
 function init() {
