@@ -7,7 +7,6 @@ logs/*
 config.json
 to-do.txt
 tags/
-Examples/
 
 # do not ignore
 !.gitkeep
