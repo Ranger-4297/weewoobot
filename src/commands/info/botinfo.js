@@ -33,7 +33,7 @@ module.exports = class BotInfoCommand extends Command {
       .setColor('#2f3136')
       .addField('Prefix', `\`${prefix}\``, true)
       .addField('Client ID', `\`${message.client.user.id}\``, true)
-      .addField(`Developer ${owner}`, '`Rhyker#1394`', true)
+      .addField(`Developer ${owner}`, '`Ranger#3794`', true)
       .addField('Tech', `\`\`\`asciidoc\n${tech}\`\`\``)
       .addField('**Links**', '_ _');
       let button = new disbut.MessageButton()
