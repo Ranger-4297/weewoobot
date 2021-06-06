@@ -1,37 +1,65 @@
 const Command = require('../Command.js');
-const { MessageEmbed } = require('discord.js');
-const rps = ['scissors','rock', 'paper'];
-const res = ['Scissors :v:','Rock :fist:', 'Paper :raised_hand:'];
+const { MessageButton, MessageActionRow } = require('discord-buttons')
 
 module.exports = class RockPaperScissorsCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'rps',
-      usage: 'rps <rock | paper | scissors>',
+      usage: 'rps',
       description: 'Play a game of rock–paper–scissors against Weewoo!',
       type: client.types.FUN,
       examples: ['rps rock']
     });
   }
-  run(message, args) {
-    let userChoice;
-    if (args.length) userChoice = args[0].toLowerCase();
-    if (!rps.includes(userChoice)) 
-      return this.sendErrorMessage(message, 0, 'Please enter rock, paper, or scissors');
-    userChoice = rps.indexOf(userChoice);
-    const botChoice = Math.floor(Math.random()*3);
-    let result;
-    if (userChoice === botChoice) result = 'It\'s a draw!';
-    else if (botChoice > userChoice || botChoice === 0 && userChoice === 2) result = '**Weewoo** wins!';
-    else result = `**${message.member.displayName}** wins!`;
-    const embed = new MessageEmbed()
-      .setTitle(`${message.member.displayName} vs. Weewoo`)
-      .addField('Your Choice:', res[userChoice], true)
-      .addField('Weewoo\'s Choice', res[botChoice], true)
-      .addField('Result', result, true)
-      .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
-      .setTimestamp()
-      .setColor(message.guild.me.displayHexColor);
-    message.channel.send(embed);
+  async run(message, args, Discord, settings, fs) {
+      const Rock = new MessageButton()
+          .setStyle('grey')
+          .setEmoji('🪨')
+          .setLabel("Rock")
+          .setID('rock')
+      const Paper = new MessageButton()
+          .setStyle('grey')
+          .setEmoji('📝')
+          .setLabel("Paper")
+          .setID('paper')
+      const Scissors = new MessageButton()
+          .setStyle('grey')
+          .setEmoji('✂️')
+          .setLabel("Scissors")
+          .setID('scissors')
+      let choices = ["rock", "paper", "scissors"]
+      let index = Math.floor(Math.random() * 3)
+      let ai = choices[index]
+      let group1 = new MessageActionRow().addComponents([Rock, Paper, Scissors]);
+      message.channel.send("Rock : <:rock:850115998341529600> - Paper : 📝 - Scissors : ✂️", {
+          components: [group1]
+      }).then((m) => {
+          const filter = (button) => button.clicker.user.id === message.author.id;
+          const collector = m.createButtonCollector(filter, {
+              time: 30000
+          })
+          collector.on('collect', async (button) => {
+              switch (ai) {
+                  case "rock":
+                          if (button.id == "paper") m.edit("You won, you had `paper` and I had `rock`!")
+                          if (button.id == "scissors") m.edit("You lost, you had `scissors` and I had `rock`!")
+                          if (button.id == "rock") m.edit("We tied, you had `rock` and I had `rock`!")
+                      break;
+                  case "paper":
+                          if (button.id == "scissors") m.edit("You won, you had `scissors` and I had `paper`!")
+                          if (button.id == "rock") m.edit("You lost, you had `rock` and I had `paper`!")
+                          if (button.id == "paper") m.edit("We tied, you had `paper` and I had `paper`!")
+                      break;
+                  case "scissors":
+                          if (button.id == "rock") m.edit("You won, you had `rock` and I had `scissors`!")
+                          if (button.id == "paper") m.edit("You lost, you had `paper` and I had `scissors`!")
+                          if (button.id == "scissors") m.edit("We tied, you had `scissors` and I had `scissors`!")
+                      break
+              }
+          });
+          collector.on('end', (collected) => {
+              if (collected.size == 0) m.edit("Time window has passed I win, I had `"+ai+"`!")
+          });
+      })
   }
 };
