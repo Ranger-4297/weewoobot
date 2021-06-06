@@ -67,7 +67,7 @@ module.exports = (client, message) => {
           If you have questions, suggestions, or found a bug, please join the 
           [Weewoo Support Server](https://discord.gg/ekMQH384KC)!
         `)
-        .setFooter('DM Rhyker#1394 to speak directly with the developer!')
+        .setFooter('DM Ranger#3794 to speak directly with the developer!')
         .setColor(message.guild.me.displayHexColor);
       message.channel.send(embed);
     }
