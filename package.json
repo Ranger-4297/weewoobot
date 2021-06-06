@@ -21,7 +21,8 @@
         "node-schedule": "^2.0.0",
         "pm2": "^4.5.6",
         "quick.db": "^7.1.3",
-        "weky": "^1.9.0",
+        "random-words": "^1.1.1",
+        "weky": "^1.9.3",
         "winston": "^3.2.1",
         "yaml": "^1.8.3",
         "youtube-search": "^1.1.4"
@@ -40,7 +41,7 @@
     "author": "Rhyker Wells",
     "license": "GPL-3.0",
     "bugs": {
-        "url": "https://github.com/sabattle/weewoobot/issues"
+        "url": "https://github.com/Ranger-4297/weewoobot/issues"
     },
-    "homepage": "https://github.com/sabattle/weewoobot#readme"
+    "homepage": "https://github.com/Ranger-4297/weewoobot#readme"
 }
