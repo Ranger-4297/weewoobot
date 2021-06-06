@@ -2,7 +2,6 @@ const Command = require('../Command.js');
 const { MessageEmbed } = require('discord.js');
 const disbut = require('discord-buttons')
 const { MessageActionRow } = require('discord-buttons');
-const { replaceResultTransformer } = require('common-tags');
 
 module.exports  = class restart extends Command {
   constructor(client) {
