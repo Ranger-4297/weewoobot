@@ -38,6 +38,8 @@ class Client extends Discord.Client {
       FUN: 'fun',
       COLOR: 'color',
       POINTS: 'points',
+      NSFW: 'nsfw',
+      TAGS: 'tags',
       MISC: 'misc',
       MOD: 'mod',
       ADMIN: 'admin',
