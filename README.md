@@ -83,13 +83,16 @@ After cloning, run:
 $ npm install
 ```
 Then. If there are severity issues. Run the following commands;
+To get the outdated packages use:
 ```node
 $ npm outdated
 ```
-
+To update the package to latest run:
 ```node
 $ npm i packagename@latest
 ```
+Repeat!
+
 You have to create a `config.json` file in order to run the bot (you can use the example file provided as a base). Your file should look something like this:
 ```
 {
