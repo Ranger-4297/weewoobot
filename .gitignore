@@ -6,7 +6,6 @@ logs/*
 .directory
 config.json
 to-do.txt
-tags/
 
 # do not ignore
 !.gitkeep
