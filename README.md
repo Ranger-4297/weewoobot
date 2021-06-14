@@ -108,7 +108,7 @@ Final step. Go to the `botinfo.js` command (`src/commands/info/botinfo.js`) line
 
 Once done, feel free to launch Weewoo using the command `pm2 start app.js` or `node app.js`. If you need additional help setting up, join the [Weewoo Support Server](https://discord.gg/ekMQH384KC)!
 
-**Important Note:** Do not use Heroku to host Weewpp! Weewoo uses SQLite as its database which backs up its data store on disk. Heroku clears its contents often, so your database will be wiped. Read more [here](https://devcenter.heroku.com/articles/sqlite3).
+**Important Note:** Do not use Heroku to host Weewoo! Weewoo uses SQLite as its database which backs up its data store on disk. Heroku clears its contents often, so your database will be wiped. Read more [here](https://devcenter.heroku.com/articles/sqlite3).
 
 ### Emojis
 
@@ -121,10 +121,9 @@ Weewoo is in a continuous state of development. New features/updates may come at
 
   * Music
   * Automod
-  * Stream alerts
   * Custom tag/reaction system
   * Leveling
-  * Advanced modlogs
+  * Advanced modlogs - In the making
 
 ## License
 
