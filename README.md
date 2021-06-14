@@ -76,13 +76,20 @@ You can add Weewpp to your server with [this](https://discord.com/api/oauth2/aut
 ### Steps:
 First off make sure [node.js](https://nodejs.org) & [git](https://git-scm.com) are installed
 ```
-git clone https://github.com/Ranger-4297/Weewoo.git
+$ git clone https://github.com/Ranger-4297/Weewoobot.git
 ```
 After cloning, run:
+```js
+$ npm install
 ```
-npm install
+Then. If there are severity issues. Run the following commands;
+```node
+$ npm outdated
 ```
 
+```node
+$ npm i packagename@latest
+```
 You have to create a `config.json` file in order to run the bot (you can use the example file provided as a base). Your file should look something like this:
 ```
 {
