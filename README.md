@@ -54,7 +54,6 @@ If you liked this repository, feel free to leave a star ⭐ to help promote Weew
   * **Fun & Games:** Tons of fun commands like `trivia`, `meme` and a variety of animal pic commands like `cat`, `dog`, and `fox`
   * **Information:** Commands like `userinfo` and `serverinfo` for general utility
 
-  * **Color:** Change your Discord color with commands like `color`, `createcolor` and `randomcolor`
   * **Owner:** Owner specific commands like `eval` and `setstatus`
   * **Miscellaneous:** All other commands like `feedback` and `bugreport`
 
