@@ -93,7 +93,7 @@ $ npm i packagename@latest
 Repeat!
 
 You have to create a `config.json` file in order to run the bot (you can use the example file provided as a base). Your file should look something like this:
-```
+```json
 {
   "token": "your_token_here",
   "ownerId": [ "your_ID_here", ]
